@@ -15,7 +15,7 @@ st.subheader("Search")
 Search,No_of_Tweets = st.columns(2)
 
 with Search:
-    Search = st.text_input('Enter your Search , eg. COVID Vaccine')
+    Search = st.text_input(('Enter your Search , eg. COVID Vaccine'),'COVID Vaccine')
 with No_of_Tweets:
     No_of_Tweets = st.number_input('no of tweet count')
 
