@@ -71,15 +71,21 @@ st.text('press the download to download the Dataframe')
 download_csv,download_json =st.columns(2)
 
 
+#with download_csv:
+#    download_csv =  st.button('Download csv') 
+#    if  download_csv:
+#        tweets_df.to_csv(f'{Search}.csv', sep=',', index=False)
+
+#with download_json:
+#    download_json =  st.button('Download json') 
+#    if  download_json:
+#        tweets_df.to_json(f'{Search}.json')
+
 with download_csv:
-    download_csv =  st.download_button('Download csv') 
-    if  download_csv:
-        tweets_df.to_csv(f'{Search}.csv', sep=',', index=False)
+    st.download_button('Download csv',tweets_df.to_csv(), mime='text/csv') 
 
 with download_json:
-    download_json =  st.download_button('Download json') 
-    if  download_json:
-        tweets_df.to_json(f'{Search}.json')  
+    download_json =  st.download_button('Download json',tweets_df.to_json(),mime='text/json')  
 
     
     
