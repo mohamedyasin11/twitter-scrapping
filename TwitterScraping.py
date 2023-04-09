@@ -7,6 +7,9 @@ from pymongo import MongoClient
 # setting page title
 st.set_page_config(page_title='Twitter Scraping')
 
+img = Image.open(r'C:\Users\ELCOT\streamlit\twitter scraper.PNG')
+st.image(img)
+
 st.header("Twitter Scraping")
 
 st.subheader("Search")
@@ -51,11 +54,17 @@ collection = db[Search]
 
 tweets_df.reset_index(inplace = True)
 
+im = Image.open(r'C:\Users\ELCOT\streamlit\ts3.PNG')
+st.image(im)
+
 # upload the dataframe to mongodb
 st.text('press the upload button to upload the Data in mongoDB')
 upload= st.button('upload')
 if upload:
     collection.insert_many(tweets_df.to_dict('records'))
+
+imag = Image.open(r'C:\Users\ELCOT\streamlit\ts2.PNG')
+st.image(imag)  
     
 # Export dataframe into a CSV , json
 st.text('press the download to download the Dataframe')
@@ -63,12 +72,12 @@ download_csv,download_json =st.columns(2)
 
 
 with download_csv:
-    download_csv =  st.button('Download csv') 
+    download_csv =  st.download_button('Download csv') 
     if  download_csv:
         tweets_df.to_csv(f'{Search}.csv', sep=',', index=False)
 
 with download_json:
-    download_json =  st.button('Download json') 
+    download_json =  st.download_button('Download json') 
     if  download_json:
         tweets_df.to_json(f'{Search}.json')  
 
