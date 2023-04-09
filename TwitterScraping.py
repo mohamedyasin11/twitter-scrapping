@@ -69,8 +69,6 @@ st.image(imag)
 # Export dataframe into a CSV , json
 st.text('press the download to download the Dataframe')
 download_csv,download_json =st.columns(2)
-
-
 #with download_csv:
 #    download_csv =  st.button('Download csv') 
 #    if  download_csv:
@@ -86,9 +84,5 @@ with download_csv:
 
 with download_json:
     download_json =  st.download_button('Download json',tweets_df.to_json(),mime='text/json')  
-
     
-    
-
-
     
